@@ -1,0 +1,50 @@
+# Environment & secrets
+.env
+*.env.local
+
+# Audio data (588 MB — too large for GitHub)
+Audio Files*/
+Spectro Files*/
+
+# Trained model weights
+backend/weights/*.pth
+
+# Runtime-generated files
+backend/clips/
+backend/elephant_registry.db
+backend/elephant_registry.db-shm
+backend/elephant_registry.db-wal
+backend/outputs_demo/
+backend/outputs_persist/
+predictions.csv
+cleaned_output.wav
+
+# C++ build artifacts
+backend/cpp_ext/build/
+backend/cpp_ext/*.so
+backend/cpp_ext/*.dylib
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code
+.claude/

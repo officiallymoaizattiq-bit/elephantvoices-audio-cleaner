@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: dark; }
+  html, body, #root { min-height: 100vh; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0B0F14;
+    color: #E6EDF3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection { background: rgba(77, 163, 255, 0.2); }
+
+  /* Thin dark scrollbar — unobtrusive */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1E2A3A; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2A3A4E; }
+
+  /* Audio element — blend into cards */
+  audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+  }
+  audio::-webkit-media-controls-panel {
+    background: #0B0F14;
+    border-radius: 10px;
+  }
+  audio::-webkit-media-controls-play-button,
+  audio::-webkit-media-controls-mute-button {
+    filter: brightness(0.85);
+  }
+  audio::-webkit-media-controls-current-time-display,
+  audio::-webkit-media-controls-time-remaining-display {
+    color: #9BA7B4;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+}
+
+/* ── Keyframes ── */
+
+/* Primary entrance: subtle rise + fade — used on every card/section */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Stronger entrance for hero elements */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale entrance for panels that "pop in" */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.97) translateY(4px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Gentle float for the upload icon */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* Indeterminate progress bar */
+@keyframes progressIndeterminate {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* Slide-open for the CallDetails panel */
+@keyframes slideOpen {
+  from { opacity: 0; transform: translateY(-8px); max-height: 0; }
+  to   { opacity: 1; transform: translateY(0);    max-height: 1200px; }
+}
+
+/* ── Utility classes ── */
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+.animate-fade-in-scale {
+  animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+.animate-slide-open {
+  animation: slideOpen 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  overflow: hidden;
+}
+
+/* Stagger children — each successive child waits a little longer */
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 50ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 150ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 250ms; }
+
+/* Focus ring — subtle primary outline for keyboard nav */
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(77, 163, 255, 0.5);
+  outline-offset: 2px;
+}

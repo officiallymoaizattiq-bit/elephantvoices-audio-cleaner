@@ -1,4 +1,4 @@
-<img width="827" height="613" alt="image" src="https://github.com/user-attachments/assets/e5fcbb37-e52d-41ee-b51e-f6f2f7bd0a7d" />
+<img width="1280" height="707" alt="image" src="https://github.com/user-attachments/assets/7ce65805-d2ac-4305-bafa-09ec58225b4b" />
 
 # ElephantVoices Audio Cleaner
 
